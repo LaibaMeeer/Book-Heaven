@@ -1,0 +1,51 @@
+
+<%- include("header.ejs") %>
+<div class="col-md-8 themed-grid-col" id="col-md-8-container" style="margin-top: -25px; background-color: transparent;">
+  <div class="blur-background"></div>
+  <div class="content row">
+    <div class="col-md-4">
+      <img src="/images/book.png" alt="Books Image" class="img-fluid" id="left-image">
+    </div>
+    <div class="col-md-8">
+      <div class="pb-3">
+        <h5>Read Books, Note Your Thoughts, Rate, and Discover Your Next Read!</h5>
+      </div>
+      <div class="row">
+        <div class="col-md-6 themed-grid-col">
+          <a href="/addNew" class="d-inline-flex text-decoration-none">
+            <button type="submit" class="btn btn-add">Add Book</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% if(locals.books){%>
+
+  <div class="album py-5 " style="margin-top: 2%; margin-left: 10%; margin-right: 10%; ">
+    <div class="container1"style=" background-color: #ECF0F1;">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
+        <% books.forEach(book => { %>
+          <div class="col">
+            <div class="card shadow-sm">
+              <img class="bd-placeholder-img card-img-top" width="170" height="200" src="/images/bookBack.webp" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"/>
+              <div class="card-body">
+                <h5 class="card-title"><%= book.title %></h5>
+                <h6 class="card-subtitle mb-2 text-muted"><%= book.author %></h6>
+                <div class="d-flex justify-content-between align-items-center">
+                  <a href="/detail/<%= book.id %>" class="d-inline-flex text-decoration-none">
+                    <button type="button" value="<%= book.id %>" name="<%= book.id %>" class="view">View</button>
+                  </a>
+                  <h6 class="card-text mb-0" style="color: #F1C40F;"><%= book.rate %></h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+
+      </div>
+    </div>
+  </div>
+<%}%>
+  <%- include("footer.ejs") %>

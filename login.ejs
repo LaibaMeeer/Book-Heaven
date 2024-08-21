@@ -1,0 +1,33 @@
+<%- include("simpleHeader.ejs") %>
+
+<main class="center">
+  <form method="post" class="centered-form">
+    <h1 class="h3 mb-3 fw-normal" style="text-align: center;">Please sign in</h1>
+
+    <div class="form-floating mb-3"> 
+      <input type="email" class="form-control" id="floatingInput" name="userEmail" required>
+      <label for="floatingInput">Email address</label>
+    </div>
+    
+    <div class="form-floating mb-3"> 
+      <input type="password" class="form-control" id="floatingPassword" name="userPassword" required>
+      <label for="floatingPassword">Password</label>
+    </div>
+
+    <div class="form-floating">
+      <button class="btn btn-primary w-100 py-2" type="submit"  style="background-color: #1abc9cbd; border:#1abc9cbd ;">Login</button>
+    </div>
+  </form>
+  <% if (messages.length > 0) { %>
+    <div class="alert alert-danger">
+      <ul>
+        <% messages.forEach(function(message) { %>
+          <li><%= message %></li>
+        <% }) %>
+      </ul>
+    </div>
+  <% } %>
+</main>
+
+</div>
+<%- include("footer.ejs") %>

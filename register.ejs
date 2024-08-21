@@ -1,0 +1,29 @@
+<%- include("simpleHeader.ejs") %>
+
+<main class="center">
+  <form action="/register" method="POST" class="centered-form">
+    <h1 class="h3 mb-3 fw-normal" style="text-align: center;">Craete Account</h1>
+
+
+    <div class="form-floating mb-3"> 
+        <input type="name" class="form-control" id="floatingInput"  name="userName">
+        <label for="floatingInput">Name</label>
+      </div>
+
+    <div class="form-floating mb-3"> 
+      <input type="email" class="form-control" id="floatingInput"  name="userEmail">
+      <label for="floatingInput">Email address</label>
+    </div>
+    
+    <div class="form-floating mb-3"> 
+      <input type="password" class="form-control" id="floatingPassword"  name="userPassword">
+      <label for="floatingPassword">Password</label>
+    </div>
+
+    <div class="form-floating">
+      <button class="btn btn-primary w-100 py-2" type="submit" style="background-color: #1abc9cbd; border:#1abc9cbd ;">Register</button>
+    </div>
+  </form>
+</main>
+</div>
+<%- include("footer.ejs") %>

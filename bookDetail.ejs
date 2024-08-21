@@ -1,0 +1,49 @@
+<%- include("header.ejs") %>
+<h1 style="text-align: center; color: #333333;">Edit Book Detail</h1>
+
+<%if(locals.book){%>
+  <form action="/edit" method="post">
+    <input id="input<%= book.id %>" type="text" name="updatedBookId" value="<%= book.id %>" autocomplete="off" autofocus="true" hidden="true" />
+    <div class="row mb-3 text-left" style="padding: 20px;">
+      <div class="col-md-6 themed-grid-col">
+        <div class="pb-3">
+          <img src="/images/bookBack.webp" height="330px" class="col-md-12 themed-grid-col"/>
+        </div>
+        <div class="row">
+          <div class="col-md-12 themed-grid-col">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" name="title" value="<%= book.title %>" />
+          </div>
+          <div class="col-md-12 themed-grid-col">
+            <label for="author">Author Name</label>
+            <input type="text" class="form-control" name="author" value="<%= book.author %>" placeholder="<%= book.author %>" />
+          </div>
+          <div class="col-md-12 themed-grid-col">
+            <label for="status">Status</label>
+            <input type="text" class="form-control" name="status" value="<%= book.status %>" placeholder="<%= book.status %>" />
+          </div>
+          <div class="col-md-12 themed-grid-col">
+            <label for="rate">Rate</label>
+            <input type="text" class="form-control" id="rate" name="rate" value="<%= book.rate %>" placeholder="<%= book.rate %>" />
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 themed-grid-col" id="2-c">
+        <label for="notes">Notes</label>
+        <textarea type="text" class="form-control" name="notes" placeholder="Notes" style="height: 500px;"><%= book.notes %></textarea>
+        <div class="row" style="display: flex; justify-content: space-between; align-items: center; margin-top: 5px;">
+          <div class="col-md-12 themed-grid-col">
+            <button class="btn w-100 py-2" type="submit" name="edit" value="<%= book.id %>" id="edit">Edit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <form action="/delete" method="post">
+    <input type="hidden" name="deletedBookId" value="<%= book.id %>" />
+    <div class="col-md-6 themed-grid-col">
+      <button class="btn w-100 py-2" type="submit" name="delete" value="<%= book.id %>" id="delete">Delete</button>
+    </div>
+  </form>
+<% } %>
+<%- include("footer.ejs") %>
